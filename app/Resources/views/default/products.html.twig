@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="paginated_items_container">
+        {% include ":default/includes:products_table.html.twig" %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    <script>
+        function ajaxPaginate(route, page) {
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: Routing.generate(route, {'page': page}),
+                success: function (data) {
+                    $('#paginated_items_container').html(data);
+                }
+            });
+        }
+    </script>
+{% endblock %}
