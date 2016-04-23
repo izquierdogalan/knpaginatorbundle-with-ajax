@@ -2,9 +2,8 @@
 
 namespace AppBundle\Manager\ORM;
 
-use AppBundle\Entity\Product;
 use AppBundle\Manager\ProductManagerInterface;
-use Doctrine\ORM\EntityManagerInterface;
+use AppBundle\Repository\ProductRepositoryInterface;
 use JMS\DiExtraBundle\Annotation as DI;
 
 /**
@@ -12,21 +11,21 @@ use JMS\DiExtraBundle\Annotation as DI;
  */
 class ProductManager implements ProductManagerInterface
 {
-    /** @var EntityManagerInterface */
-    private $entityManager;
+    /** @var ProductRepositoryInterface */
+    private $productRepository;
 
     /**
      * @DI\InjectParams({
-     *     "entityManager" = @DI\Inject("doctrine.orm.entity_manager")
+     *     "productRepository" = @DI\Inject("app.repository.product")
      * })
      */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(ProductRepositoryInterface $productRepository)
     {
-        $this->entityManager = $entityManager;
+        $this->productRepository = $productRepository;
     }
 
     public function getAllProductsPaginated()
     {
-        return $this->entityManager->getRepository(Product::class)->findAllPaginated();
+        return $this->productRepository->findAllPaginated();
     }
 }
