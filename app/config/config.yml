@@ -76,7 +76,7 @@ knp_paginator:
         distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
     template:
         pagination: :Pagination:sliding.html.twig
-        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig
+        sortable: :Pagination:sortable_link.html.twig
 
 
 jms_di_extra:

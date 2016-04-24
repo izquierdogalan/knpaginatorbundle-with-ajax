@@ -16,8 +16,7 @@ class ProductRepository extends EntityRepository implements ProductRepositoryInt
 {
     /**
      * @DI\InjectParams({
-     *     "em" = @DI\Inject("doctrine.orm.entity_manager"),
-     *     "class" = @DI\Inject(Product::class)
+     *     "em" = @DI\Inject("doctrine.orm.entity_manager")
      * })
      */
     public function __construct(EntityManager $em)

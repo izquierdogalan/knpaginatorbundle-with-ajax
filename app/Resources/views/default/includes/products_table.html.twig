@@ -1,10 +1,10 @@
 <table>
     <thead>
     <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Description</th>
+        <th>{{ knp_pagination_sortable(products, 'Id', 'p.id') }}</th>
+        <th>{{ knp_pagination_sortable(products, 'Name', 'p.name') }}</th>
+        <th>{{ knp_pagination_sortable(products, 'Price', 'p.price') }}</th>
+        <th>{{ knp_pagination_sortable(products, 'Description', 'p.description') }}</th>
     </tr>
     </thead>
     <tbody>

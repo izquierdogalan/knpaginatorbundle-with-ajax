@@ -20,5 +20,15 @@
                 }
             });
         }
+        function ajaxSortable(url) {
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: url,
+                success: function (data) {
+                    $('#paginated_items_container').html(data);
+                }
+            });
+        }
     </script>
 {% endblock %}

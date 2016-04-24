@@ -1,0 +1,3 @@
+{% spaceless %}
+    <a{% for attr, value in options %}{% if(attr == 'href') %} onclick="ajaxSortable('{{ value }}')"{% else %} {{ attr }}="{{ value }}"{% endif %}{% endfor %}  ">{{ title }}&nbsp;</a>
+{% endspaceless %}
